@@ -19,13 +19,14 @@ export default {
           "base-100": "#ffffff",
         },
       },
-      "light",
+      "dark",
     ],
   },
   theme: {
     extend: {
       colors: {
         erp_primary: "#007BFF",
+        erp_shadow: "#EEEEEE",
         erp_secondary: "#6C757D",
         erp_success: "#28A745",
         erp_danger: "#DC3545",
@@ -36,12 +37,13 @@ export default {
         // Others
         erp_bg_main: "#EDE4D9",
         erp_blue: "blue",
-        erp_menu: "#F8F9FA",
-        erp_menu_icons: "#007BFF",
-        erp_menu_text: "#343A40",
-        erp_submenu_icons: "#007BFF",
-        erp_submenu_text: "#343A40",
-
+        erp_menu: "#353C4B",
+        erp_top_menu: "#353C4B",
+        erp_menu_icons: "#ffff",
+        erp_menu_text: "#ffffff",
+        erp_submenu_icons: "#ffff",
+        erp_submenu_text: "#ffffff",
+        erp_extended_icons:"#ffff"
       },
     },
   },

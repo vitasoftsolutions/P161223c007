@@ -22,7 +22,7 @@ import {
 } from "react-icons/bs";
 import { GoPasskeyFill } from "react-icons/go";
 import { SiFlatpak } from "react-icons/si";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // const Menus = [
 //   // Accounts
@@ -551,6 +551,9 @@ const Menus = [
 
 const SideBar = ({ open, setOpen }) => {
   const [expandedMenus, setExpandedMenus] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const location = useLocation();
 
   const handleToggleSubMenu = (index) => {
     const expandedMenusCopy = [...expandedMenus];
@@ -581,12 +584,27 @@ const SideBar = ({ open, setOpen }) => {
     };
   }, []);
 
+  useEffect(() => {
+    // Check if the current location matches any of the menu items
+    const selectedItem = Menus.findIndex((menu) => {
+      if (menu.to === location.pathname) return true;
+      if (menu.subMenus) {
+        return menu.subMenus.some(
+          (submenu) => submenu.to === location.pathname
+        );
+      }
+      return false;
+    });
+
+    setSelectedItem(selectedItem);
+  }, [location.pathname]);
+
   return (
-    <div className="mt-10 bg-erp_menu min-h-full">
+    <div className="mt-10 z-50 bg-erp_menu min-h-full">
       <div
         className={`${
           open ? "w-60" : "w-20 "
-        } shadow-xl shadow-blue-200 min-h-[100vh] pb-10 relative duration-300`}
+        } min-h-[100vh] pb-10 relative duration-300`}
       >
         <img
           src="/image/control.png"
@@ -595,7 +613,7 @@ const SideBar = ({ open, setOpen }) => {
           onClick={() => setOpen(!open)}
         />
 
-        <ul className="pt-10">
+        <ul className="pt-10 overflow-hidden">
           {Menus?.map((Menu, index) => (
             <div key={index}>
               {Menu.subMenus && Menu.subMenus.length > 0 ? (
@@ -603,14 +621,25 @@ const SideBar = ({ open, setOpen }) => {
                   <div
                     className={`text-lg w-full font-medium cursor-pointer flex justify-between ${
                       !open && "justify-center pl-8 py-2"
-                    } py-1 px-4`}
+                    } py-1 px-4 ${
+                      selectedItem === index &&
+                      "bg-[#242834] text-[#fff] rounded-l-full ml-2"
+                    }`}
                     onClick={() => handleToggleSubMenu(index)}
                   >
                     <div className="flex items-center gap-2">
-                      <p className="text-erp_menu_icons">{Menu.icons} </p>
-                      <span
+                      <p
                         className={`${
-                          !open && "hidden scale-0 "
+                          selectedItem === index && "text-[#fff]"
+                        } text-erp_menu_icons`}
+                      >
+                        {Menu.icons}
+                      </p>
+                      <span
+                        className={`${!open && "hidden scale-0"} ${
+                          selectedItem === index
+                            ? "text-[#fff]"
+                            : "text-black"
                         } origin-left duration-200 text-md text-erp_menu_text`}
                       >
                         {Menu.title}
@@ -618,9 +647,11 @@ const SideBar = ({ open, setOpen }) => {
                     </div>
                     <div>
                       <span
-                        className={`${
-                          !open && "hidden scale-0"
-                        } origin-left duration-200`}
+                        className={`${!open && "hidden scale-0"} ${
+                          selectedItem === index
+                            ? "text-erp_top_menu"
+                            : "text-black"
+                        } origin-left duration-200 text-erp_bg_main`}
                       >
                         {expandedMenus.includes(index) ? "-" : "+"}
                       </span>
@@ -658,9 +689,9 @@ const SideBar = ({ open, setOpen }) => {
               ) : (
                 <Link key={index} to={Menu.to}>
                   <li
-                    className={
-                      "selection:font-medium font-semibold text-lg overflow-hidden"
-                    }
+                    className={`selection:font-medium font-semibold text-lg overflow-hidden ${
+                      selectedItem === index && "bg-red-500 text-white"
+                    }`}
                   >
                     <div
                       className={`flex justify-between rounded-2xl py-1 px-4 ${

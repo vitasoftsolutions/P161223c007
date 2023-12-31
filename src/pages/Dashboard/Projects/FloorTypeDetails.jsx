@@ -44,7 +44,7 @@ function FloorTypeDetails() {
       {!state ? (
         <NoData />
       ) : (
-        <div className="bg-white shadow-lg shadow-blue-200 md:mx-8 mb-5 mt-5 rounded-lg md:p-4">
+        <div className="bg-erp_dark shadow-sm shadow-blue-200 md:mx-8 mb-5 mt-5 rounded-lg md:p-4">
           <div
             className={`w-full mx-auto p-4 grid grid-rows-${floorState?.data?.length} bg-gray-200 gap-x-4 rounded-md bg-opacity-50 backdrop-blur-md`}
           >

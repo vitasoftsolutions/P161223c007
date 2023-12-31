@@ -42,7 +42,7 @@ const DetailsModal = ({ onClose, erp_modalCol, photoSection, allData, nidSection
               
             </h2>
             {/* Details */}
-            <div className="mt-5 px-5 py-5 bg-gray-100 h-fit">
+            <div className="mt-5 px-5 py-5 bg-erp_secondary h-fit">
               <h3 className="font-bold text-lg pb-2 border-b mb-1">
                 {formattedPathname} Details
                 

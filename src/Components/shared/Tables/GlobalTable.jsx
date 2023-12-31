@@ -40,7 +40,7 @@ const GlobalTable = ({
   };
 
   return (
-    <div className="container mx-auto border-2 bg-white mt-5 border-gray-50 overflow-hidden shadow-md shadow-blue-200">
+    <div className="container mx-auto border-[1px] bg-[#353C4B] bg-opacity-50 mt-5 border-gray-600 overflow-hidden">
       <div className="overflow-x-auto flex flex-col min-h-[60vh]">
         {/*  */}
         <table className="table table-xs table_border table-compact w-full">
@@ -79,7 +79,7 @@ const GlobalTable = ({
             {t_data?.data?.map((t_dt) => {
               return (
                 // row
-                <tr key={t_dt.id} className="w-full border-b-[1px]">
+                <tr key={t_dt.id} className="w-full border-b-[1px] border-black">
                   {/* <th className="pl-6">
                     <label>
                       <input
@@ -161,7 +161,7 @@ const GlobalTable = ({
         </table>
 
         {/* Pagination */}
-        <div className="border-t-2 flex justify-center py-1 mt-auto">
+        <div className="border-t-2 border-gray-600 flex justify-center py-1 mt-auto">
           <div className="join flex gap-2 rounded-none py-4">
             <button
               onClick={() => handlePageChange(current_page - 1)}

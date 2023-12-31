@@ -30,7 +30,7 @@ function FloorsDetails() {
         </div>
       </div>
 
-      <div className="bg-white shadow-lg shadow-blue-200 md:mx-10 mb-5 mt-5 rounded-lg md:p-4">
+      <div className="bg-erp_dark shadow-sm shadow-blue-200 md:mx-10 mb-5 mt-5 rounded-lg md:p-4">
         <div className="w-full mx-auto p-4 grid grid-cols-4 gap-x-4 rounded-md bg-opacity-50 backdrop-blur-md bg-gray-200">
           <div>
             <h1>Floor Details</h1>

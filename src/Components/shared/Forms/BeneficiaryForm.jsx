@@ -168,7 +168,7 @@ const BeneficiaryForm = ({
         ) : field.fieldType === "file" ? (
           <div
             className={`relative border-2 border-dashed border-gray-300 p-4 ${
-              dragging ? "bg-gray-100" : ""
+              dragging ? "bg-[#353C4B] bg-opacity-50" : ""
             }`}
             onDragEnter={handleDragEnter}
             onDragOver={handleDragOver}

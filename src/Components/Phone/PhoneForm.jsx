@@ -71,7 +71,7 @@ const PhoneForm = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         encType="multipart/form-data"
-        className="w-full mx-auto p-4 grid grid-cols-3 gap-x-4 rounded-md bg-opacity-50 backdrop-blur-md bg-gray-200"
+        className="w-full mx-auto p-4 grid grid-cols-3 gap-x-4 rounded-md bg-opacity-50 backdrop-blur-md bg-[#353C4B]"
       >
         {/* Name */}
         <div className={"col-span-3 md:col-span-1"}>

@@ -76,7 +76,7 @@ function CreateFloors() {
           </Link>
         </div>
       </div>
-      <div className="bg-white shadow-lg shadow-blue-200 md:mx-10 mb-5 rounded-lg md:p-4">
+      <div className="bg-erp_dark shadow-sm shadow-blue-200 md:mx-10 mb-5 rounded-lg md:p-4">
         <BeneficiaryForm
           formsData={formsData}
           // submitFunction={submitFunction}

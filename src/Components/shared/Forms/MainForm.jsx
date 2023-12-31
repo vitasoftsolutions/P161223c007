@@ -126,7 +126,7 @@ const MainForm = ({
       >
         <label
           htmlFor={field.fieldName.toLowerCase().replace(/\s+/g, "_")}
-          className="block text-black mb-1 font-bold"
+          className="block text-white mb-1 font-bold"
         >
           {field.fieldName}
         </label>
@@ -201,7 +201,7 @@ const MainForm = ({
         ) : field.fieldType === "file" ? (
           <div
             className={`relative border-2 border-dashed border-gray-300 p-4 ${
-              dragging ? "bg-gray-100" : ""
+              dragging ? "bg-[#353C4B] bg-opacity-50" : ""
             }`}
             onDragEnter={handleDragEnter}
             onDragOver={handleDragOver}
@@ -337,7 +337,7 @@ const MainForm = ({
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full mx-auto p-4 grid grid-cols-3 gap-x-4 rounded-md bg-opacity-50 backdrop-blur-md bg-gray-200"
+        className="w-full mx-auto p-4 grid grid-cols-3 gap-x-4 rounded-md backdrop-blur-md bg-[#353C4B]"
       >
         {formsData?.map((field, index) => renderField(field, index))}
 
@@ -346,7 +346,7 @@ const MainForm = ({
           <div className="col-span-3 md:col-span-1 mb-4">
             <label
               htmlFor="statusInput"
-              className="block text-black mb-1 font-bold"
+              className="block text-white mb-1 font-bold"
             >
               Status
             </label>
